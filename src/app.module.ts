@@ -4,6 +4,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configEnv, configVar } from './shared/config/env.config';
 import { LoggerMiddleware } from './shared/middleware/logger.middleware';
 import { ProductsModule } from './modules/products/products.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { ProductsModule } from './modules/products/products.module';
       synchronize: false,
     }),
     ProductsModule,
+    UsersModule,
   ],
   controllers: [],
   providers: [],
