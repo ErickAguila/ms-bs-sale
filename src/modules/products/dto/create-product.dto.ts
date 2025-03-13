@@ -2,14 +2,14 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsNotEmpty, Length, IsNumber } from 'class-validator';
 
 export class CreateProductDto {
-  @IsNumber()
+  @IsString()
   @ApiProperty({
     description: 'Id del usuario',
     type: Number,
     required: true,
-    example: 1,
+    example: '1',
   })
-  userId: number;
+  userId: string;
 
   @IsString()
   @IsNotEmpty({ message: 'El campo name no puede ser vacío' })
@@ -43,23 +43,23 @@ export class CreateProductDto {
   })
   description: string;
 
-  @IsNumber()
+  @IsString()
   @ApiProperty({
     description: 'Precio del producto',
     type: Number,
     required: true,
-    example: 1000,
+    example: '1000',
   })
-  price: number;
+  price: string;
 
-  @IsNumber()
+  @IsString()
   @ApiProperty({
     description: 'Stock del producto',
     type: Number,
     required: true,
-    example: 10,
+    example: '10',
   })
-  stock: number;
+  stock: string;
 
   @IsString()
   @IsNotEmpty({ message: 'El campo category no puede ser vacío' })
@@ -76,4 +76,7 @@ export class CreateProductDto {
     example: 'Tecnología',
   })
   category: string;
+
+  @ApiProperty({ type: 'string', format: 'binary', required: true })
+  file: Express.Multer.File
 }

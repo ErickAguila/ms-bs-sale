@@ -45,4 +45,7 @@ export class Product {
     name: 'updated_at',
   })
   updatedAt: Date;
+
+  @Column({ type: 'varchar', length: 100, name: "url_img" })
+  urlImg: string;
 }
