@@ -28,7 +28,7 @@ export class ProductsService {
       throw new Error('Usuario no encontrado');
     }
     // Guadar en bucket de firebase
-    const fileName = `img/user_${createProductDto.userId}/${createProductDto.name}`;
+    const fileName = `img/user_${createProductDto.userId}/${createProductDto.name.toLowerCase().replaceAll(' ', '_')}`;
     const fileUpload = bucket.file(fileName);
     await fileUpload.save(file.buffer, {
       metadata: {
