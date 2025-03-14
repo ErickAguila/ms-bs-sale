@@ -3,6 +3,7 @@ dotenv.config();
 
 export const configVar = {
   PORT: Number(process.env.PORT),
+  FIREBASE_CREDENTIALS: process.env.FIREBASE_CREDENTIALS,
   DATABASE: {
     HOST: process.env.DB_HOST,
     PORT: Number(process.env.DB_PORT),
